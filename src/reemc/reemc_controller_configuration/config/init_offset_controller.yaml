@@ -1,0 +1,49 @@
+init_offset_controller:
+  type: reemc_controllers/ReemcInitOffsetController 
+  joints:
+    - leg_left_1_joint
+    - leg_left_2_joint
+    - leg_left_3_joint
+    - leg_left_4_joint
+    - leg_left_5_joint
+    - leg_left_6_joint
+    - leg_right_1_joint
+    - leg_right_2_joint
+    - leg_right_3_joint
+    - leg_right_4_joint
+    - leg_right_5_joint
+    - leg_right_6_joint
+    - torso_1_joint
+    - torso_2_joint
+    - arm_left_1_joint
+    - arm_left_2_joint
+    - arm_left_3_joint
+    - arm_left_4_joint
+    - arm_left_5_joint
+    - arm_left_6_joint
+    - arm_left_7_joint
+    - arm_right_1_joint
+    - arm_right_2_joint
+    - arm_right_3_joint
+    - arm_right_4_joint
+    - arm_right_5_joint
+    - arm_right_6_joint
+    - arm_right_7_joint
+    - head_1_joint
+    - head_2_joint
+  left_ft_sensor: left_ankle_ft
+  right_ft_sensor: right_ankle_ft
+  base_imu_sensor: base_imu
+
+  hip_spacing_x: 0.0
+  hip_spacing_y: 0.0725
+  hip_spacing_z: 0.0
+  femur_length: 0.3
+  tibia_length: 0.3
+  foot_height: 0.110
+  ft_sensor_z: 0.04
+
+  read_absolute_encoders: False
+
+  config_folder: $HOME/.pal/reemc_controller_configuration/config
+

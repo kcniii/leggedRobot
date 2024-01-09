@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package>
+  <name>reemc_bringup</name>
+  <version>1.0.19</version>
+  <description>Launch files and scripts needed to bring up the ROS nodes of a REEM-C robot.</description>
+  <maintainer email="hilario.tome@pal-robotics.com">Hilario Tome</maintainer>
+  <maintainer email="luca.marchionni@pal-robotics.com">Luca Marchionni</maintainer>
+  <license>Modified BSD</license>
+  <author email="adolfo.rodriguez@pal-robotics.com">Adolfo Rodriguez Tsouroukdissian</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>reemc_controller_configuration</run_depend>
+  <run_depend>reemc_description</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>tf_lookup</run_depend>
+  <run_depend>twist_mux</run_depend>
+  <run_depend>joy</run_depend>
+  <run_depend>joy_teleop</run_depend>
+  <run_depend>play_motion</run_depend>
+  <run_depend>reemc_moveit_config</run_depend>
+  <run_depend>ros_control_monitor</run_depend>
+
+</package>

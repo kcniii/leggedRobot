@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name="gui" default="true" />
+  <arg name="rate" default="10" />
+ 
+  <!-- Robot model -->
+  <include file="$(find reemc_description)/robots/upload_reemc.launch" >
+     <arg name="robot" value="full_ft_hey5"/>
+     <arg name="head_version" value="v0"/>
+  </include>
+
+  <param name="use_gui" value="$(arg gui)"/>
+  <param name="rate" value="$(arg rate)"/>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >	
+        <rosparam param="source_list">[/joint_cmd]</rosparam>
+        <rosparam param="publish_default_positions">true</rosparam>
+  </node>
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"> 
+  </node>
+  	
+  <node name="$(anon rviz)" pkg="rviz" type="rviz" args="-d $(find mitsubishi_rv2sq_bringup)/config/rviz.rviz" output="screen"/>  
+
+</launch>

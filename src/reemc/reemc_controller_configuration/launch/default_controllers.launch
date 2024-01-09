@@ -1,0 +1,47 @@
+<launch>
+  <!-- Spawn upper-body joint trajectory controllers -->
+  <node name="upper_body_controllers_spawner"
+        pkg="controller_manager" type="spawner" output="screen"
+        args="torso_controller
+              head_controller
+              left_arm_controller
+              right_arm_controller
+              left_hand_controller
+              right_hand_controller" />
+
+  <!-- Configure walking controller for lower-body only -->
+  <rosparam command="delete" param="walking_controller/joints" />
+  <rosparam command="load"
+    file="$(find reemc_controller_configuration)/config/walking_controller_lowerbody.yaml" />
+
+  <!-- Spawn walking controller -->
+  <node name="walking_controller_spawner"
+        pkg="controller_manager" type="spawner" output="screen"
+        args="walking_controller" />
+
+  <!-- Point head action -->
+  <group ns="head_controller">
+    <node name="point_head_action" pkg="head_action" type="head_action" output="screen" >
+      <rosparam>
+        pan_link:  head_1_link
+        tilt_link: head_2_link
+        success_angle_threshold: 0.01
+      </rosparam>
+    </node>
+  </group>
+
+  <!-- Simple grasping action -->
+  <node name="left_hand_grasping_action" pkg="simple_grasping_action" type="simple_grasping_action" output="screen">
+    <param name="target_controller" value="left_hand_controller" />
+  </node>
+
+  <node name="right_hand_grasping_action" pkg="simple_grasping_action" type="simple_grasping_action" output="screen">
+    <param name="target_controller" value="right_hand_controller" />
+  </node>
+
+  <!-- Arm motions executor while walking -->
+  <include file="$(find reemc_controller_configuration)/launch/walk_pose.launch" >
+    <arg name="robot" value="full_ft_hey5"/>
+  </include>
+
+</launch>

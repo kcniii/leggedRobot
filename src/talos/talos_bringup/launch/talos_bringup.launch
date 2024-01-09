@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name="use_gui" default="FALSE" />
+  <arg name="rate" default="10" />
+ 
+  <!-- Robot model -->
+  <include file="$(find talos_description)/robots/upload.launch" >
+    <arg name="robot" value="full_v2"/>
+    <arg name="foot_collision" default="default"/>
+    <arg name="default_configuration_type" default="zeros"/>
+  </include>
+
+  <param name="rate" value="$(arg rate)"/>
+ 
+   <node    name="joint_state_publisher" 
+            pkg="joint_state_publisher" 
+            type="joint_state_publisher" 
+            output="screen" 
+            unless="$(arg use_gui)" >	
+        <rosparam param="source_list">[/joint_cmd]</rosparam>
+        <rosparam>
+        zeros:
+            arm_left_1_joint: -0.71
+            arm_left_2_joint:  0.78
+            arm_left_3_joint: -0.2
+            arm_left_4_joint: -1.15
+            arm_left_5_joint:  1.34
+            arm_left_6_joint: -0.35
+            arm_left_7_joint:  0.0
+        </rosparam>
+  </node>
+  
+  <node     name="joint_state_publisher_gui" 
+            pkg="joint_state_publisher_gui" 
+            type="joint_state_publisher_gui" 
+            output="screen" 
+            if="$(arg use_gui)" >	
+        <rosparam param="source_list">[/joint_cmd]</rosparam>
+        <rosparam>
+        zeros:
+            arm_left_1_joint: -0.71
+            arm_left_2_joint:  0.78
+            arm_left_3_joint: -0.2
+            arm_left_4_joint: -1.15
+            arm_left_5_joint:  1.34
+            arm_left_6_joint: -0.35
+            arm_left_7_joint:  0.0
+        </rosparam>
+  </node>
+ 
+  <node name="robot_state_publisher" 
+        pkg="robot_state_publisher" 
+        type="robot_state_publisher"/> 
+  	
+  <node name="$(anon rviz)" pkg="rviz" type="rviz" 
+        args="-d $(find talos_bringup)/config/rviz.rviz" output="screen"/>  
+
+</launch>

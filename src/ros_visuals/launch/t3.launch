@@ -1,0 +1,15 @@
+<launch>
+    <!-- Load the urdf into the parameter server. -->
+    <node name="t3_simulation" pkg="bullet_sims" type="t3_simulation.py" output="screen">
+    </node>
+    
+    <param name="robot_description" command ="cat $(find ros_visuals)/../talos/talos_description/robots/talos_reduced.urdf" />
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_pub" >
+    </node>
+
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ros_visuals)/rviz/t3_config.rviz" /> -->
+
+    <!-- <node name="t3_marker" pkg="bullet_sims" type="t3_marker.py" output="screen" > -->
+    <!-- </node> -->
+</launch>

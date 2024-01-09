@@ -1,0 +1,10 @@
+<launch>
+  <!-- Load the urdf into the parameter server. -->
+  <!-- <param name="robot_description" command="cat $(find ros_visuals) ../talos/talos_description/robots/talos_reduced.urdf" /> -->
+  <!-- <param name="robot_description" textfile="/home/kaicheng/Ni_deliverable_1/T2/src/talos/talos_description/robots/talos_reduced.urdf" /> -->
+  <param name="robot_description" command="cat $(find ros_visuals)/../talos/talos_description/robots/talos_reduced.urdf" />
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" >
+    </node>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ros_visuals)/rviz/talos.rviz" />
+  </launch>

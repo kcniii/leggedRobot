@@ -1,0 +1,5 @@
+  <launch>
+    <!-- Turtlesim Node-->
+    <node pkg="ros_visuals" type="t13.py" name="t13" />
+    <node name="rviz" pkg="rviz" type="rviz"  args="-d $(find ros_visuals)/rviz/t13_config.rviz" />
+  </launch>

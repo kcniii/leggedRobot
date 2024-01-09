@@ -1,0 +1,7 @@
+<launch>
+  <include file="$(find reemc_description)/robots/upload_reemc.launch"/>
+
+  <include file="$(find urdf_test)/launch/test_urdf.launch">
+    <arg name="get_description" value="true"/>
+  </include>
+</launch>

@@ -40,7 +40,7 @@ To build the project, follow these steps:
 ```bash
 rosrun bullet_sims t4_01_standing.py
 ```
-[](GIF/stand.gif)
+[](https://github.com/kcniii/leggedRobot/blob/main/GIF/stand.gif)
 
 ### EX2: One Leg Stand
 

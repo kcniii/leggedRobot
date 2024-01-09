@@ -46,7 +46,7 @@ class Talos(Robot):
                         [0, 0, 1.1], 
                         [0,0,0,1], 
                         q=q, 
-                        useFixedBase=False,
+                        useFixedBase=useFixedBase,
                         verbose=verbose)
         
         # TODO add publisher

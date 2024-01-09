@@ -221,12 +221,10 @@ class TSIDWrapper:
 
         # posture reference (set to current)
         # Note: need to remove floating base!
-        # q_ref = q[7:]
-        # posture_ref = create_sample(q_ref)
-        # postureTask.setReference(posture_ref)
         q_ref = conf.q_posture
         posture_ref = create_sample(q_ref)
         postureTask.setReference(posture_ref)
+
         ########################################################################
         # posture task
         ########################################################################

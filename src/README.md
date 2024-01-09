@@ -1,4 +1,4 @@
-# Tutorial 4
+# Legged Robot
 
 This file provides step-by-step instructions on setting up and running the exercise.
 
@@ -40,6 +40,7 @@ To build the project, follow these steps:
 ```bash
 rosrun bullet_sims t4_01_standing.py
 ```
+[](GIF/stand.gif)
 
 ### EX2: One Leg Stand
 

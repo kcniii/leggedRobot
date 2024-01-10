@@ -93,8 +93,8 @@ kp_posture = np.array([
         10., 10., 10., 10., 10., 10.,           # left leg  #low gain on axis along y and knee
         10., 10., 10., 10., 10., 10.,           # right leg #low gain on axis along y and knee
         5000., 5000.,                           # torso really high to make them stiff
-        10., 10., 10., 10., 10., 10., 10., # right arm make the x direction soft
-        10., 10., 10., 10., 10., 10., 10., # left arm make the x direction soft
+        10., 10., 10., 10., 10., 10., 10.,# right arm make the x direction soft
+        10., 10., 10., 10., 10., 10., 10.,# left arm make the x direction soft
         1000., 1000.                            # head
 ])
 masks_posture = np.ones(na)                     # mask out joint (here none)

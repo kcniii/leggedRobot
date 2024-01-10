@@ -46,7 +46,7 @@ class Talos(Robot):
                         [0, 0, 1.1], 
                         [0,0,0,1], 
                         q=q, 
-                        useFixedBase=False,
+                        useFixedBase=useFixedBase,
                         verbose=verbose)
         
         # TODO add publisher
@@ -127,10 +127,12 @@ def main():
         if t > 2.0 and flag2 == 0:
             flag2 = 1
             wrapper.remove_contact_LF()
-            lf_pos = wrapper.get_placement_LF().translation
-
+            lf_pos_SE3 = wrapper.get_placement_LF()
+            lf_pos=lf_pos_SE3.translation
+            
             new_lf_pos = np.array([lf_pos[0], lf_pos[1], 0.3])
-            wrapper.set_LF_pose_ref(new_lf_pos)
+            tmp = pin.SE3(np.eye(3),new_lf_pos)
+            wrapper.set_LF_pose_ref(tmp)
 
         # publish to ros
         if t - t_publish > 1./30.:

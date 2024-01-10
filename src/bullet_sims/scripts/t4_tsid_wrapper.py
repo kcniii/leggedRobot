@@ -224,7 +224,6 @@ class TSIDWrapper:
         q_ref = conf.q_posture
         posture_ref = create_sample(q_ref)
         postureTask.setReference(posture_ref)
-
         ########################################################################
         # posture task
         ########################################################################
@@ -629,7 +628,7 @@ class TSIDWrapper:
             # remove contact
             self.formulation.removeRigidContact(
                 self.contactLF.name, transition_time)
-            self.contact_lf_active = False
+            self.contact_LF_active = False
 
     def add_contact_RF(self, transition_time=0.0):
         # add task to stack, set reference to current

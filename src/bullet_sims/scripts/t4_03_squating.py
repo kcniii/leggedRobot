@@ -249,7 +249,7 @@ def main():
             lf_pos = wrapper.get_placement_LF().translation
 
             new_lf_pos = np.array([lf_pos[0], lf_pos[1], 0.3])
-            wrapper.set_LF_pose_ref(new_lf_pos)
+            wrapper.set_LF_pose_ref(pin.SE3(np.eye(3),new_lf_pos))
 
         if t > 4.0:
             com_p = wrapper.comState().pos()

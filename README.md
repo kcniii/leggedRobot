@@ -21,20 +21,14 @@ Before running the code, make sure you have the following dependencies installed
 
 ## build
 To build the project, follow these steps:
-
-1. Open a terminal.
-
-2. Navigate to the workspace.
-
-3. Run the following commands:
-
-    ```shell
-    catkin_make
-    source ./devel/setup.bash
-    ```
+ Navigate to the workspace.Run the following commands:
+```shell
+catkin_make
+source ./devel/setup.bash
+```
 
 ## launch
-### EX1: Standing
+### Standing
 
 
 ```bash
@@ -42,14 +36,15 @@ rosrun bullet_sims t4_01_standing.py
 ```
 ![](https://github.com/kcniii/leggedRobot/blob/main/GIF/stand.gif)
 
-### EX2: One Leg Stand
+### One Leg Stand
 
 ```bash
 rosrun bullet_sims t4_02_one_leg_stand.py
 ```
-
-### EX3: Squatting
+![](https://github.com/kcniii/leggedRobot/blob/main/GIF/one-leg.gif)
+### Squatting
 
 ```bash
 rosrun bullet_sims t4_03_squating.py
 ```
+![](https://github.com/kcniii/leggedRobot/blob/main/GIF/squat.gif)
